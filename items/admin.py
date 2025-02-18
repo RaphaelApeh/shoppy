@@ -14,12 +14,12 @@ class ItemAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {"fields": ("category", "user")}),
         ("Image", {"fields": ( "image", "show_image")}),
-        ("Extra", {"fields": ("name", "price", "description", "slug", "active","quantities", "tags")}),
+        ("Extra", {"fields": ("name", "price", "description", "slug", "active","quantities", "tags", "views")}),
         ("Date", {"fields": ("created_at", "updated_at")}),
     )
 
     def show_image(self, obj):
-        return format_html(f"<img src='{obj.image.url}' width='100' />")
+        return format_html(f"<img src=\"{obj.image.url}\" width=\"300\" />")
 
     show_image.short_description = "Current Image"
 

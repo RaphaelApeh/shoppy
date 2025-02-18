@@ -26,6 +26,7 @@ class Item(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField(blank=True, null=True)
     price = models.FloatField(default=99.99)
+    views = models.ManyToManyField(User, blank=True, related_name="views")
     image = models.ImageField(default="default.jpg")
     active = models.BooleanField(default=True)
     description = models.TextField()
@@ -44,3 +45,7 @@ class Item(models.Model):
 
     class Meta:
         db_table = "items"
+
+    @property
+    def views_count(self)-> int:
+        return self.views.count()

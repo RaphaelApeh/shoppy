@@ -29,6 +29,8 @@ DJANGO_APPS = [
 THIRD_PARTIES_APPS = [
     "taggit",
     "django_filters",
+    "rest_framework",
+    "django_countries",
 ]
 
 INTERNAL_APPS = [

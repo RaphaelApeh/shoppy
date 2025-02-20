@@ -1,5 +1,5 @@
 import django_filters
-from django.db.models import Count, Q
+from django.db.models import Count
 
 from .models import Item
 
@@ -20,5 +20,5 @@ class ItemFilter(django_filters.FilterSet):
         exclude = ["image"]
 
     def view_user_count(self, queryset, name, value):
-        print(queryset, name, value)
+        
         return queryset.annotate(view_count=Count("views")).filter(view_count__gte=value)

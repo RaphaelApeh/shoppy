@@ -8,6 +8,7 @@ from .models import Category, Item
 class ItemAdmin(admin.ModelAdmin):
     
     search_fields = ["user__username", "name", "category__name", "price"]
+    list_per_page = 10
     list_display = ["user__username", "name", "price", "active"]
     list_filter = ["price", "active"]
     readonly_fields = ["show_image", "updated_at", "created_at"]

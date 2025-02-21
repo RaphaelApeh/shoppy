@@ -1,4 +1,4 @@
-from django.db.models.query import Q
+from django.db.models import Q
 
 
 class ModelSearchMixin:
@@ -11,7 +11,7 @@ class ModelSearchMixin:
         assert isinstance(self.search_fields, (tuple, list)), "'search_fields' must be of type tuple or list"
         return self.search_fields
     
-    def search_field(self, queryset):      
+    def search_field(self, queryset):
         
         search_lookup = self.request.GET.get(self.query_param, None)
         

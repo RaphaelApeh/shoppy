@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Item</title>
+</head>
+<body>
+    <ol>
+    {% for item in object_list %}
+    <li>{{ item.user }} {{ item.name }}</li>
+    <li>{{ item.description }}</li>
+    <img src="{{ item.image.url }}" width="100" alt="">
+    {% endfor %}
+    </ol>
+</body>
+</html>

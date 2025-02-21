@@ -23,7 +23,7 @@ class ModelSearchMixin:
         return queryset.filter(query).distinct()
     
     def get_queryset(self):
-        queryset = super().get_querset()
+        queryset = super().get_queryset()
         
         if self.search_fields and self.request.GET.get(self.query_param):
             return self.search_field(queryset)

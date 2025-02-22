@@ -1,14 +1,16 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'allauth_ui/output.css' %}">
     <title>List of Item</title>
 </head>
-<body>
+<body class="flex justify-center items-center space-y">
     <ol>
     {% for item in object_list %}
-    <li>{{ item.user }} {{ item.name }}</li>
+    <li class="bg-red-500 font-bold text-lg">{{ item.user }} {{ item.name }}</li>
     <li>{{ item.description }}</li>
     <img src="{{ item.image.url }}" width="100" alt="">
     {% endfor %}

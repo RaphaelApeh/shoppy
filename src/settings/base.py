@@ -31,6 +31,11 @@ THIRD_PARTIES_APPS = [
     "django_filters",
     "rest_framework",
     "django_countries",
+    "allauth_ui",
+    "allauth",
+    "allauth.account",
+    "widget_tweaks",
+    "slippers",
 ]
 
 INTERNAL_APPS = [
@@ -49,6 +54,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = "src.urls"
@@ -56,7 +63,7 @@ ROOT_URLCONF = "src.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -114,6 +121,11 @@ USE_I18N = True
 USE_TZ = True
 
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',   
+    "allauth.account.auth_backends.AuthenticationBackend"
+]
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
@@ -121,6 +133,10 @@ STATIC_URL = "static/"
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static"
+]
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 

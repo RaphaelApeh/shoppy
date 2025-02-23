@@ -11,6 +11,7 @@ class ProfileAdmin(admin.ModelAdmin):
     readonly_fields = ["show_flag"]
     list_filter = ["country"]
     list_display = ["user__username", "user__email", "country", "show_flag"]
+    ordering = ["-user__date_joined", "-user__last_login"]
 
     @admin.display(description="Flag")
     def show_flag(self, obj):

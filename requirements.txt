@@ -6,3 +6,10 @@ pillow>=11.1.0
 django-countries
 python-decouple
 djangorestframework
+django-widget-tweaks>=1.5.0
+djangorestframework>=3.15.2
+pillow>=11.1.0
+python-decouple>=3.8
+slippers>=0.6.2
+django-allauth>=65.4.1
+django-allauth-ui>=1.6.1

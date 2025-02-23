@@ -1,0 +1,16 @@
+{% extends "allauth/layouts/base.html" %}
+{% load i18n %}
+{% load static %}
+{% load allauth_ui %}
+
+{% block head_title %}
+<link rel="stylesheet" href="{% static 'allauth_ui/output.css' %}">
+{% endblock head_title %}
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'allauth_ui/output.css' %}">
+{% endblock extra_head %}
+{% block body %}
+    {{ block.super }}
+{% endblock body %}
+{% block extra_body %}
+{% endblock extra_body %}

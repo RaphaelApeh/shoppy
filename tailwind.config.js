@@ -4,7 +4,8 @@ module.exports = {
     './templates/**/*.html',
     './**/**.py',
     './items/templates/items/items_list.html',
-    './templates/allauth/layouts/base.html'
+    './templates/**/**/*.html',
+    './templates/allauth/layouts/base.html',
   ],
   theme: {
     extend: {},

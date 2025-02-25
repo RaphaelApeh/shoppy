@@ -12,6 +12,7 @@ output.css
 # ENV
 .env
 
+index.html
 # Virtual environments
 .venv
 

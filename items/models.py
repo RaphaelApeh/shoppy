@@ -4,6 +4,7 @@ from django.utils.text import slugify
 
 from taggit.managers import TaggableManager
 
+from .managers import ItemManager
 
 User = get_user_model()
 
@@ -49,3 +50,5 @@ class Item(models.Model):
     @property
     def views_count(self)-> int:
         return self.views.count()
+    
+    objects = ItemManager()

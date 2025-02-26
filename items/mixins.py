@@ -31,7 +31,7 @@ class ModelSearchMixin:
                         break
                 else:
                     if (field_name, value) not in values:
-                        values.append((field_name, value))
+                        values.append((field_name, "icontains"))
                         break
         print(values)
         return values   
@@ -55,6 +55,7 @@ class ModelSearchMixin:
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context["search"] = self.query_param
         context[self.query_param] = self.get_query_param
         return context
 

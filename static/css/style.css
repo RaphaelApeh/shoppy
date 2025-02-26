@@ -279,7 +279,7 @@ body {
     padding-top: 7px;
     font-size: 15px;
     font-weight: 700;
-    color: #088178;
+    color: gray;
 }
 
 #product1 .pro .cart {
@@ -289,7 +289,7 @@ body {
     border-radius: 50px;
     background-color: #e8f6ea;
     font-weight: 500;
-    color: #088178;
+    color: black;
     border: 1px solid #cce7d0;
     position: absolute;
     bottom: 20px;
@@ -424,10 +424,9 @@ body {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    background-image: url(images/banner/b14.png);
     background-repeat: no-repeat;
     background-position: 20% 30%;
-    background-color: #041e42;
+    background-color: #222;
 }
 
 #newsletter h4 {
@@ -443,7 +442,7 @@ body {
 }
 
 #newsletter p span{ 
-    color: #ffbd27;
+    color: white;
 }
 
 #newsletter .form {
@@ -464,7 +463,7 @@ body {
 }
 
 #newsletter button {
-    background-color: #088178;
+    background-color: black;
     color: #fff;
     white-space: nowrap;
     border-top-left-radius: 0;
@@ -534,7 +533,6 @@ footer .copyright {
 /* Shop Page */
 
 #page-header {
-    background-image: url(images/banner/b1.jpg);
     width: 100%;
     height: 40vh;
     background-size: cover;
@@ -556,7 +554,7 @@ footer .copyright {
 
 #pagination a {
     text-decoration: none;
-    background-color: #088178;
+    background-color: black;
     padding: 15px 20px;
     border-radius: 4px;
     color: #fff;
@@ -618,7 +616,7 @@ footer .copyright {
 }
 
 #productdetails .single-pro-details button {
-    background-color: #088178;
+    background-color: black;
     color: #fff;
 }
 
@@ -630,112 +628,7 @@ footer .copyright {
     line-height: 25px;
 }
 
-/* Blog Page */
 
-#page-header.blog-header {
-    background-image: url(images/banner/b19.jpg);
-}
-
-#blog {
-    padding: 150px 150px 0 150px;
-}
-
-#blog .blog-box {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    position: relative;
-    padding-bottom: 90px;
-}
-
-#blog .blog-img {
-    width: 50%;
-    margin-right: 40px;
-}
-
-#blog img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-}
-
-#blog .blog-details {
-    width: 50%;
-}
-
-#blog .blog-details a {
-    text-decoration: none;
-    font-size: 11px;
-    color: #000;
-    font-weight: 700;
-    position: relative;
-    transition: 0.3s;
-}
-
-#blog .blog-details a::after {
-    content: "";
-    width: 50px;
-    height: 1px;
-    background-color: #000;
-    position: absolute;
-    top: 4px;
-    right: -60px;
-}
-
-#blog .blog-details a:hover {
-    color: #088178;
-}
-
-#blog .blog-details a:hover::after {
-    background-color: #088178;
-}
-
-#blog .blog-box h1 {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    font-size: 70px;
-    font-weight: 700;
-    color: #c9cbce;
-    z-index: -9;
-}
-
-/* About Page */
-
-#page-header.about-header {
-    background-image: url(images/about/banner.png);
-}
-
-#about-head {
-    display: flex;
-    align-items: center;
-}
-
-#about-head img {
-    width: 50%;
-    height: auto;
-}
-
-#about-head div {
-    padding-left: 40px;
-}
-
-
-#about-app {
-    text-align: center;
-}
-
-#about-app .video {
-    width: 70%;
-    height: 100%;
-    margin: 30px auto 0 auto;
-} 
-
-#about-app .video video {
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-}
 
 /* Contact Page */
 

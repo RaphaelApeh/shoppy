@@ -1,19 +1,44 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'allauth_ui/output.css' %}">
-    <title>List of Item</title>
-</head>
-<body class="flex justify-center items-center space-y">
-    <ol>
-    {% for item in object_list %}
-    <li class="bg-red-500 font-bold text-lg">{{ item.user }} {{ item.name }}</li>
-    <li>{{ item.description }}</li>
-    <img src="{{ item.image.url }}" width="100" alt="">
-    {% endfor %}
-    </ol>
-</body>
-</html>
+{% block title %}List{% endblock title %}
+
+{% block content %}
+
+<section id="form-details">
+    <form action="">
+        <input type="text" name="{{ search }}" placeholder="Search">
+        <button class="normal">Search</button>
+    </form>
+</section>
+
+
+<section id="product1" class="section-p1">
+    <div class="pro-container">
+        {% for object in object_list %}
+        <div class="pro">
+            <img src="{{ object.image.url }}" alt="">
+            <div class="des">
+                <span>{{ object.user.username }}</span>
+                <h5>{{ object.name|title }}</h5>
+                <div class="star">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <h4>${{ object.price }}</h4>
+            </div>
+            <a href="#"><i class="fas fa-shopping-cart cart"></i></a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section id="pagination" class="section-p1">
+    <a href="#">1</a>
+    
+    <a href=""><i class="fas fa-long-arrow-alt-right"></i></a>
+
+</section>
+{% endblock content %}

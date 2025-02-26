@@ -24,7 +24,7 @@ from .views import home_page_view
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", home_page_view),
+    path("", home_page_view, name="home"),
     path("", include("items.urls")),
     path("accounts/", include("accounts.urls")),
     path("workers/", include("accounts.workers.urls")),

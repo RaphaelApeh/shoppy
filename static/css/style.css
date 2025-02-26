@@ -79,7 +79,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 20px 80px;
-    background: #E3E6F3;
+    background: white;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
     z-index: 999;
     position: sticky;
@@ -108,7 +108,7 @@ body {
 
 #navbar li a:hover,
 #navbar li a.active {
-    color: #088178;
+    color: black;
 }
 
 #navbar li a:hover::after,
@@ -116,7 +116,7 @@ body {
     content: "";
     width: 30%;
     height: 2px;
-    background: #088178;
+    background: black;
     position: absolute;
     bottom: -4px;
     left: 20px;
@@ -151,13 +151,13 @@ body {
 }
 
 #hero h1 {
-    color: #088178;
+    color: gray;
 }
 
 #hero button {
     background-image: url(../images/button.png);
     background-color: transparent;
-    color: #088178;
+    color: black;
     border: 0;
     padding: 14px 80px 14px 65px;
     background-repeat: no-repeat;

@@ -21,7 +21,7 @@
         <h3>Shoppy</h3>
         <div>
             <ul id="navbar">
-                <li><a class="active" href="index.html">Home</a></li>
+                <li><a class="active" href="{% url 'home' %}">Home</a></li>
                 {% if request.user.is_authenticated %}
                 <li><a href="">Shop</a></li>
                 <li><a href="">Blog</a></li>
@@ -65,9 +65,7 @@
 
     <footer class="section-p1">
         <div class="col">
-            <h3 class="">Shoppy</h3><br>
-            <h4>Contact</h4>
-            <p><strong>Phone:</strong> +234 80 699 85488</p>
+            <h3>Shoppy</h3><br>
             <div class="follow">
                 <h4>Follow us</h4>
                 <div class="icon">
@@ -91,19 +89,8 @@
             <h4>My Account</h4>
             <a href="">Sign In</a>
             <a href="">Sign Up</a>
-            <a href="">My Itens</a>
-            <a href="">Track My Order</a>
+            <a href="">My Items</a>
             <a href="">Help</a>
-        </div>
-        <div class="col install">
-            <h4>Install App</h4>
-            <p>From App Store or Google Play</p>
-            <div class="row">
-                <img src="images/pay/app.jpg" alt="">
-                <img src="images/pay/play.jpg" alt="">
-            </div>
-            <p>Secured Payment Gateway</p>
-            <img src="images/pay/pay.png" alt="">
         </div>
         <div class="copyright">
             <p>Created By Raphael Apeh | All Rights Reserved | &#169; {% now "Y" %}</p>

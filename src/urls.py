@@ -27,6 +27,7 @@ urlpatterns = [
     path("", home_page_view),
     path("", include("items.urls")),
     path("accounts/", include("accounts.urls")),
+    path("workers/", include("accounts.workers.urls")),
     path("api/", include("items.api.urls")),
 ]
 

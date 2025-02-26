@@ -42,6 +42,7 @@ INTERNAL_APPS = [
     "items",
     "items.api",
     "accounts",
+    "accounts.workers"
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTIES_APPS + INTERNAL_APPS

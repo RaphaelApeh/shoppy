@@ -1,15 +1,12 @@
 from django_filters import rest_framework as filters
-from rest_framework import (
-    generics,
-    permissions,
-    viewsets
-)
+from rest_framework import generics, permissions, viewsets
 
-from items.models import Item
 from items.filters import ItemFilter
+from items.models import Item
 
-from .serializers import ItemSerializer
 from .permissions import IsOwnerOrIsStaff
+from .serializers import ItemSerializer
+
 
 class ItemListView(generics.ListAPIView):
     """

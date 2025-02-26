@@ -129,6 +129,15 @@ wheels = [
 ]
 
 [[package]]
+name = "isort"
+version = "6.0.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/1c/28/b382d1656ac0ee4cef4bf579b13f9c6c813bff8a5cb5996669592c8c75fa/isort-6.0.0.tar.gz", hash = "sha256:75d9d8a1438a9432a7d7b54f2d3b45cad9a4a0fdba43617d9873379704a8bdf1", size = 828356 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/76/c7/d6017f09ae5b1206fbe531f7af3b6dac1f67aedcbd2e79f3b386c27955d6/isort-6.0.0-py3-none-any.whl", hash = "sha256:567954102bb47bb12e0fae62606570faacddd441e45683968c8d1734fb1af892", size = 94053 },
+]
+
+[[package]]
 name = "pillow"
 version = "11.1.0"
 source = { registry = "https://pypi.org/simple" }
@@ -215,6 +224,7 @@ dependencies = [
     { name = "django-taggit" },
     { name = "django-widget-tweaks" },
     { name = "djangorestframework" },
+    { name = "isort" },
     { name = "pillow" },
     { name = "python-decouple" },
     { name = "slippers" },
@@ -231,6 +241,7 @@ requires-dist = [
     { name = "django-taggit", specifier = ">=6.1.0" },
     { name = "django-widget-tweaks", specifier = ">=1.5.0" },
     { name = "djangorestframework", specifier = ">=3.15.2" },
+    { name = "isort", specifier = ">=6.0.0" },
     { name = "pillow", specifier = ">=11.1.0" },
     { name = "python-decouple", specifier = ">=3.8" },
     { name = "slippers", specifier = ">=0.6.2" },

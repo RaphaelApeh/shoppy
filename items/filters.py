@@ -3,6 +3,7 @@ from django.db.models import Count
 
 from .models import Item
 
+
 class ItemFilter(django_filters.FilterSet):
 
     tags = django_filters.CharFilter("tags__name", lookup_expr="icontains")

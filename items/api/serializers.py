@@ -1,11 +1,9 @@
 from django.contrib.auth import get_user_model
-
 from rest_framework import serializers
-
 from taggit.serializers import TaggitSerializer, TagListSerializerField
 
-from items.models import Item
 from accounts.models import Profile
+from items.models import Item
 
 User = get_user_model()
 

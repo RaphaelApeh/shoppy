@@ -1,9 +1,7 @@
-from django.views.generic import (
-    ListView
-)
+from django.views.generic import ListView
 
-from .models import Item
 from .mixins import ModelSearchMixin
+from .models import Item
 
 
 class ItemListView(ModelSearchMixin, ListView):

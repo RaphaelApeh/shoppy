@@ -1,6 +1,7 @@
 from django.views.generic import (
     ListView,
-    CreateView
+    CreateView,
+    DetailView
 )
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -16,6 +17,20 @@ class ItemListView(ModelSearchMixin, ListView):
     search_fields = ["quantities", "user__username", "tags__name", "name"]
     distinct = True
     paginate_by = 10
+
+
+class ItemDetailView(DetailView):
+
+    template_name = "items/items_detail.html"
+    model = Item
+    queryset = Item.objects.select_related("user")
+
+    def get_context_data(self, **kwargs):
+
+        context = super().get_context_data(**kwargs)
+        context["user_related_items"] = self.get_queryset().user_items(self.get_object().user)
+
+        return context
 
 
 class ItemCreateView(LoginRequiredMixin, CreateView):

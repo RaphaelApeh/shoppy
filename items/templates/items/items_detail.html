@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ object.user.username }}'s {{ object.name }}
+{% endblock title %}
+
+{% block content %}
+    <section id="productdetails" class="section-p1">
+        <div class="single-pro-image">
+            <img src="{{ object.image.url }}" width="100%" id="MainImg" alt="">
+        </div>
+        <div class="single-pro-details">
+            <h6 onclick="location.href = '/'">Home / {{ object.name }}</h6>
+            <h4>{{ object.name|title }}</h4>
+             <h5>Seller: {{ object.user.get_full_name|default:object.user.username }} <img src="{{ object.user.profile.country.flag }}" /></h5>
+            <h2>{{ object.price }}</h2>
+
+            <input type="number" value="{{ object.quantities }}" disabled>
+            
+            {% if request.user != object.user %}
+                <button class="normal">Contact Seller</button>
+            {% endif %}
+
+            {% if request.user == object.user %}
+                <button style="Background-color: green;" class="normal">Update</button>
+                <button style="Background-color: red;" class="normal">Delete</button>
+            {% endif %}
+            <h4>Product Details</h4>
+            <span>
+                {{ object.description }}
+            </span>
+        </div>
+    </section>
+
+    <section id="product1" class="section-p1">
+        <p>Related Item by {{ object.user.get_full_name|default:object.user.username }}</p>
+        <div class="pro-container">
+            {% for related_object in user_related_items %}
+            <div class="pro">
+                <img src="{{ related_object.image.url }}" alt="">
+                <div class="des">
+                    <span>{{ related_object.user.username }}</span>
+
+                    <h5>{{ related_object.name|title }}</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>{{ related_object.price }}</h4>
+                </div>
+                <a href="{% url 'items:items_detail' slug=related_object.slug %}"><i class="fas fa-shopping-cart cart"></i></a>
+            </div>
+            {% empty %}
+            <div class="pro">
+                <img src="" alt="">
+                <div class="des">
+                    <span></span>
+
+                    <center><h5>No Item</h5></center>
+                    <h4></h4>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock content %}

@@ -23,6 +23,3 @@ def create_user_profile(sender, instance, created=None, **kwargs):
  
     if created:
         Profile.objects.create(user=instance)
-        return
-    if not Profile.objects.filter(user=instance).exists():
-        Profile.objects.create(user=instance)

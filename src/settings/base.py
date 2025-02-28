@@ -162,3 +162,7 @@ REST_FRAMEWORK = {
 # Allauth
 ACCOUNT_EMAIL_VERIVICATION = "mandatory"
 ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_LOGIN_METHODS = {
+    "username",
+    "email"
+}

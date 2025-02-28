@@ -15,7 +15,7 @@
 <section id="product1" class="section-p1">
     <div class="pro-container">
         {% for object in object_list %}
-        <div class="pro">
+        <div class="pro" onclick="location.href = '{% url 'items:items_detail' slug=object.slug %}';">
             <img src="{{ object.image.url }}" alt="">
             <div class="des">
                 <span>{{ object.user.username }}</span>
@@ -36,9 +36,14 @@
 </section>
 
 <section id="pagination" class="section-p1">
-    <a href="#">1</a>
-    
-    <a href=""><i class="fas fa-long-arrow-alt-right"></i></a>
+
+    {% if page_obj.has_previous %}
+    <a href="{% querystring page=page_obj.previous_page_number %}"><i class="fas fa-long-arrow-alt-left"></i></a>
+    {% endif %}
+
+    {% if page_obj.has_next %}
+        <a href="{% querystring page=page_obj.next_page_number %}"><i class="fas fa-long-arrow-alt-right"></i></a>
+    {% endif %}
 
 </section>
 {% endblock content %}

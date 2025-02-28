@@ -17,7 +17,7 @@ class ItemListView(ModelSearchMixin, ListView):
     queryset = Item.objects.select_related("user").order_by("-created_at", "-updated_at")
     search_fields = ["quantities", "user__username", "tags__name", "name"]
     distinct = True
-    paginate_by = 10
+    paginate_by = 5
 
 
 class ItemDetailView(DetailView):

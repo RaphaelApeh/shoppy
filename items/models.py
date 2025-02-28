@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils.text import slugify
+from django.urls import reverse
 
 from taggit.managers import TaggableManager
 
@@ -52,3 +53,6 @@ class Item(models.Model):
         return self.views.count()
     
     objects = ItemManager()
+
+    def get_absolute_url(self):
+        return reverse("items:items_detail", kwargs={"slug": self.slug})

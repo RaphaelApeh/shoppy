@@ -37,7 +37,7 @@
         <div class="pro-container">
             {% for related_object in user_related_items %}
             <div class="pro">
-                <img src="{{ related_object.image.url }}" alt="">
+                <img src="{{ related_object.image.url }}" onclick="location.href = '{{ related_object.slug }}'" alt="">
                 <div class="des">
                     <span>{{ related_object.user.username }}</span>
 
@@ -51,7 +51,6 @@
                     </div>
                     <h4>{{ related_object.price }}</h4>
                 </div>
-                <a href="{% url 'items:items_detail' slug=related_object.slug %}"><i class="fas fa-shopping-cart cart"></i></a>
             </div>
             {% empty %}
             <div class="pro">

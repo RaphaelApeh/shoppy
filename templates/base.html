@@ -21,17 +21,17 @@
         <h3>Shoppy</h3>
         <div>
             <ul id="navbar">
-                <li><a class="active" href="{% url 'home' %}">Home</a></li>
+                <li><a {% if request.path == '/' %} class="active" {% endif %} href="{% url 'home' %}">Home</a></li>
                 {% if request.user.is_authenticated %}
-                <li><a href="">Shop</a></li>
-                <li><a href="">Blog</a></li>
+                <li><a {% if 'items' in request.path  %} class="active" {% endif %} href="{% url 'items:items_list' %}">Items</a></li>
+                <li><a href="{% url 'account_logout' %}">Log out</a></li>
                 {% endif %}
 
                 {% if request.user.is_anonymous %}
                 <li><a href="{% url 'account_login' %}">Sign In</a></li>
                 <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
                 {% endif %}
-                <li id="lg-bag"><a href="cart.html"><i class="far fa-shopping-bag"></i></a></li>
+                <li id="lg-bag"><a href=""><i class="far fa-shopping-bag"></i></a></li>
                 <a href="#" id="close"><i class="far fa-times"></i></a>
             </ul>
         </div>

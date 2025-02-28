@@ -4,7 +4,7 @@
 **Install Dependencies** 🚀
 ```bash
 # pip
-pip install -r requirements.txt
+pip install -r requirements/local.txt
 # uv
 uv sync
 ```

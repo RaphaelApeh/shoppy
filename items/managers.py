@@ -1,7 +1,5 @@
-from django.db.models import (
-    QuerySet,
-    Manager
-)
+from django.db.models import Manager, QuerySet
+
 
 class ItemQuerySet(QuerySet):
 
@@ -16,6 +14,9 @@ class ItemQuerySet(QuerySet):
         
         return self.filter(active=False)
 
+    def filter_by_user_country(self, user):
+
+        return self.filter(user__profile__country__name=user.profile.country.name)
 
 class ItemManager(Manager):
 
@@ -29,3 +30,7 @@ class ItemManager(Manager):
     def user_items(self, user, distinct=False, **kwargs):
 
         return self.get_queryset().user_items(user, distinct, **kwargs)
+    
+    def filter_by_user_country(self, user):
+
+        return self.get_queryset().filter_by_user_country(user)

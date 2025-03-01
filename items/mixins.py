@@ -1,9 +1,7 @@
 from typing import Any
 
-from django.db.models import (
-    Q,
-    QuerySet
-)
+from django.db.models import Q, QuerySet
+
 
 class ModelSearchMixin:
 

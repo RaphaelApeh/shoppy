@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section id="cart-add" class="section-p1">
+    <div class="coupon">
+        <h3>Create a new Item 🎁</h3>
+        <div>
+            <button class="normal">New</button>
+        </div>
+    </div>
+    <div class="subtotal">
+        <h3>{{ request.user.get_full_name|default:request.user.username }}'s</h3>
+        <table>
+            <tr>
+                <td>username</td>
+                <td>{{ request.user.username }}</td>
+            </tr>
+            <tr>
+                <td>Items</td>
+                <td>{{ request.user.items.count }}</td>
+            </tr>
+            <tr>
+                <td>Country</td>
+                <td><img src="{{ request.profile.country.flag }}" /></td>
+            </tr>
+            <!-- <tr>
+                <td><strong>Total</strong></td>
+                <td><strong>$ 335</strong></td>
+            </tr> -->
+        </table>
+        <button class="normal">Inbox</button>
+    </div>
+</section>
+
+    <section id="cart" class="section-p1">
+        <table width="100%">
+            <thead>
+                <tr>
+                    <td>Remove</td>
+                    <td>Image</td>
+                    <td>Product</td>
+                    <td>Price</td>
+                    <td>Quantity</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for object in request.user.items.all %}
+                <tr>
+                    <td><a href="#"><i class="fas fa-times-circle" style="color:black"></i></a></td>
+                    <td><img src="{{ object.image.url }}" alt=""></td>
+                    <td>{{ object.name|title }}</td>
+                    <td>{{ object.price }}</td>
+                    <td><input type="number" value="{{ object.quantities }}"></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+{% endblock content %}

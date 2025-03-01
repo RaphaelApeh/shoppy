@@ -711,7 +711,7 @@ footer .copyright {
 }
 
 #form-details form button {
-    background-color: #088178;
+    background-color: black;
     color: #fff;
 }
 
@@ -832,7 +832,7 @@ footer .copyright {
 
 #cart-add .coupon button,
 #cart-add .subtotal button {
-    background-color: #088178;
+    background-color: black;
     color: #fff;
     padding: 12px 20px;
 }

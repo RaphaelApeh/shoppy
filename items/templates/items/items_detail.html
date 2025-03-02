@@ -24,11 +24,11 @@
             {% if request.user == object.user %}
                 <button hx-get="{% url 'items:items_update' slug=object.slug %}"
                 hx-trigger="click" hx-target="#updateForm" style="Background-color: green;" class="normal">Update</button>
-                <button style="Background-color: red;" class="normal">Delete</button>
+                <button hx-get="{% url 'items:items_delete' slug=object.slug %}" hx-trigger="click" hx-target="#updateForm" style="Background-color: red;" class="normal">Delete</button>
             {% endif %}
             <h4>Product Details</h4>
             <span>
-                {{ object.description }}
+                {{ object.description|safe }}
             </span>
         </div>
     </section>

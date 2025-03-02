@@ -15,6 +15,11 @@ urlpatterns: list[path] = [
         "items/<str:slug>/update",
         views.ItemUpdateView.as_view(),
         name="items_update"
+    ),
+    path(
+        "items/<str:slug>/delete",
+        views.ItemDeleteView.as_view(),
+        name="items_delete"
     )
 
 ]

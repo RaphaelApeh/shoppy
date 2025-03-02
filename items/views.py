@@ -2,8 +2,10 @@ from django.views.generic import (
     ListView,
     CreateView,
     DetailView,
-    UpdateView
+    UpdateView,
+    DeleteView,
 )
+from django.shortcuts import get_object_or_404
 from django.http import HttpResponseBadRequest
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -60,6 +62,23 @@ class ItemUpdateView(LoginRequiredMixin, UpdateView):
         obj.save()
         return super().form_valid(form)
     
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["path"] = self.request.path
+        return context
+    
+
+class ItemDeleteView(LoginRequiredMixin, DeleteView):
+    model = Item
+    template_name = "items/partials/item_delete.html"
+    success_url = "/"
+
+    def dispatch(self, request, *args, **kwargs):
+        obj = get_object_or_404(self.model, slug=kwargs["slug"])
+        if obj.user != request.user:
+            return HttpResponseBadRequest()
+        return super().dispatch(request, *args, **kwargs)
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["path"] = self.request.path

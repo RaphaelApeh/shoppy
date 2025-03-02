@@ -22,7 +22,8 @@
             {% endif %}
 
             {% if request.user == object.user %}
-                <button style="Background-color: green;" class="normal">Update</button>
+                <button hx-get="{% url 'items:items_update' slug=object.slug %}"
+                hx-trigger="click" hx-target="#updateForm" style="Background-color: green;" class="normal">Update</button>
                 <button style="Background-color: red;" class="normal">Delete</button>
             {% endif %}
             <h4>Product Details</h4>
@@ -31,6 +32,8 @@
             </span>
         </div>
     </section>
+
+    <div id="updateForm"></div>
 
     <section id="product1" class="section-p1">
         <p>Related Item by {{ object.user.get_full_name|default:object.user.username }}</p>

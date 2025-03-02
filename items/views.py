@@ -17,7 +17,7 @@ from .models import Item
 class ItemListView(ModelSearchMixin, ListView):
     
     template_name = "items/items_list.html"
-    queryset = Item.objects.select_related("user").order_by("-created_at", "-updated_at")
+    queryset = Item.objects.select_related("user").order_by("-created_at", "-updated_at").exclude(active=False)
     search_fields = ["quantities", "^user__username", "tags__name", "name"]
     distinct = True
     paginate_by = 5
@@ -34,7 +34,7 @@ class ItemDetailView(DetailView):
 
         context = super().get_context_data(**kwargs)
         obj = self.get_object()
-        context["user_related_items"] = self.get_queryset().user_items(obj.user).exclude(pk=obj.pk)
+        context["user_related_items"] = self.get_queryset().user_items(obj.user).exclude(pk=obj.pk)[:8]
 
         return context
 

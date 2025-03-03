@@ -47,6 +47,12 @@ class Item(models.Model):
 
     class Meta:
         db_table = "items"
+        indexes = [
+            models.Index(fields=["name"])
+        ]
+        constraints = [
+            models.UniqueConstraint(fields=["slug"], name="unique_item_slug_field")
+        ]
 
     @property
     def views_count(self)-> int:

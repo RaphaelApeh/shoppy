@@ -1,7 +1,7 @@
 <section id="form-details">
     <form action="{{ path }}" method="post">
         {% csrf_token %}
-        <small style="margin-bottom: 40px;">Are you sure you want to delete {{ object.name }}</small> <br>
+        <small style="margin-bottom: 40px;">Are you sure you want to delete "{{ object.name }}"</small> <br>
         <button class="normal" style="background-color: red; color: white;">Delete</button>
     </form>
 </section>

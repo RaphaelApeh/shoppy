@@ -27,8 +27,8 @@
                 <button hx-get="{% url 'items:items_delete' slug=object.slug %}" hx-trigger="click" hx-target="#updateForm" style="Background-color: red;" class="normal">Delete</button>
             {% endif %}
             <h4>Product Details</h4>
-            <span>
-                {{ object.truncated_description|safe }}
+            <span hx-get="{% url 'items:items_description' slug=object.slug %}" hx-trigger="click" hx-swap="innerHTMl" class="desc">
+                {{ object.truncated_description|safe }}See more
             </span>
         </div>
     </section>

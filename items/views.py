@@ -5,7 +5,7 @@ from django.views.generic import (
     UpdateView,
     DeleteView,
 )
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponseBadRequest
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -83,3 +83,11 @@ class ItemDeleteView(LoginRequiredMixin, DeleteView):
         context = super().get_context_data(**kwargs)
         context["path"] = self.request.path
         return context
+
+
+def show_full_description_view(request, slug: str):
+    obj = get_object_or_404(Item, slug=slug)
+    context = {
+        "object": obj
+    }
+    return render(request, "items/partials/show_description.html", context)

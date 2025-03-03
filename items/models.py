@@ -1,13 +1,15 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-from django.utils.text import slugify
 from django.urls import reverse
 
 from taggit.managers import TaggableManager
 
 from .managers import ItemManager
+from .utils import generate_unique_slug
+
 
 User = get_user_model()
+
 
 class Category(models.Model):
     name = models.CharField(max_length=20)
@@ -41,8 +43,7 @@ class Item(models.Model):
         return self.name
     
     def save(self, *args, **kwargs):
-        if self.slug is None:
-            self.slug = slugify(self.name)
+        self.slug = generate_unique_slug(self)
         super().save(*args, **kwargs)
 
     class Meta:

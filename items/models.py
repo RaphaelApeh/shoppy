@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.urls import reverse
-
+from django.utils.text import Truncator
 from taggit.managers import TaggableManager
 
 from .managers import ItemManager
@@ -63,3 +63,7 @@ class Item(models.Model):
 
     def get_absolute_url(self):
         return reverse("items:items_detail", kwargs={"slug": self.slug})
+    
+    @property
+    def truncated_description(self):
+        return Truncator(self.description).words(40)

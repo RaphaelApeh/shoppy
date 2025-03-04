@@ -40,7 +40,7 @@
         <div class="pro-container">
             {% for related_object in user_related_items %}
             <div class="pro">
-                <img src="{{ related_object.image.url }}" onclick="location.href = '{{ related_object.slug }}'" alt="">
+                <img src="{{ related_object.image.url }}" onclick="location.href = '{{ related_object.get_absolute_url }}'" alt="">
                 <div class="des">
                     <span>{{ related_object.user.username }}</span>
 
@@ -67,5 +67,16 @@
             </div>
             {% endfor %}
         </div>
+    </section>
+    <section id="pagination" class="section-p1">
+
+        {% if user_related_items.has_previous %}
+        <a href="{% querystring page=user_related_items.previous_page_number %}"><i class="fas fa-long-arrow-alt-left"></i></a>
+        {% endif %}
+    
+        {% if user_related_items.has_next %}
+            <a href="{% querystring page=user_related_items.next_page_number %}"><i class="fas fa-long-arrow-alt-right"></i></a>
+        {% endif %}
+    
     </section>
 {% endblock content %}

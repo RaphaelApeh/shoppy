@@ -1,16 +1,12 @@
-from django.views.generic import (
-    ListView,
-    CreateView,
-    DetailView,
-    UpdateView,
-    DeleteView,
-)
-from django.shortcuts import get_object_or_404, render, redirect
-from django.http import HttpResponseBadRequest
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponseBadRequest
+from django.core.paginator import Paginator
+from django.shortcuts import get_object_or_404, redirect, render
+from django.views.generic import (CreateView, DeleteView, DetailView, ListView,
+                                  UpdateView)
 
-from .mixins import ModelSearchMixin
 from .forms import ItemForm
+from .mixins import ModelSearchMixin
 from .models import Item
 
 
@@ -34,7 +30,9 @@ class ItemDetailView(DetailView):
 
         context = super().get_context_data(**kwargs)
         obj = self.get_object()
-        context["user_related_items"] = self.get_queryset().user_items(obj.user).exclude(pk=obj.pk)[:8]
+        qs = self.get_queryset().user_items(obj.user).exclude(pk=obj.pk)
+        paginator = Paginator(qs, per_page=4)
+        context["user_related_items"] = paginator.get_page(int(self.request.GET.get("page", 1)))
 
         return context
 

@@ -7,6 +7,11 @@ app_name: str = "items"
 urlpatterns: list[path] = [
     path("items/", views.ItemListView.as_view(), name="items_list"),
     path(
+        "new/",
+        views.ItemCreateView.as_view(),
+        name="items_create"
+    ),
+    path(
         "items/<str:slug>/",
         views.ItemDetailView.as_view(),
         name="items_detail"

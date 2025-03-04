@@ -5,7 +5,7 @@ from django.views.generic import (
     UpdateView,
     DeleteView,
 )
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponseBadRequest
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -44,6 +44,13 @@ class ItemCreateView(LoginRequiredMixin, CreateView):
     template_name = "items/items_create.html"
     model = Item
     form_class = ItemForm
+    
+
+    def form_valid(self, form):
+        obj = form.save(commit=False)
+        obj.user = self.request.user
+        obj.save()
+        return redirect(obj.get_absolute_url())
 
 
 class ItemUpdateView(LoginRequiredMixin, UpdateView):
